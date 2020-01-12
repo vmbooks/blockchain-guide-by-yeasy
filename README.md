@@ -1,5 +1,4 @@
 # 区块链技术指南
-1.2.3
 
 区块链是金融科技（Fintech）领域的一项重要基础科技创新。
 
@@ -10,9 +9,6 @@
 ## 阅读使用
 本书适用于对区块链技术感兴趣，且具备一定金融科技基础的读者；无技术背景的读者也可以从中了解到区块链技术的现状。
 
-* 在线阅读：[GitBook](https://www.gitbook.com/book/yeasy/blockchain_guide) 或 [GitHub](https://github.com/yeasy/blockchain_guide/blob/master/SUMMARY.md)
-* pdf 版本 [下载](https://www.gitbook.com/download/pdf/book/yeasy/blockchain_guide)
-* epub 版本 [下载](https://www.gitbook.com/download/epub/book/yeasy/blockchain_guide)
 
 ## 进阶学习
 ![区块链原理、设计与应用](_images/blockchain_book.png)
@@ -32,11 +28,6 @@
 * [修订记录](revision.md)
 * [贡献者名单](https://github.com/yeasy/blockchain_guide/graphs/contributors)
 
-## 鼓励项目
-
-欢迎鼓励项目一杯 coffee~
-
-![coffee](_images/coffee.jpeg)
 
 ## 在线交流
 
