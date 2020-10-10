@@ -4,10 +4,8 @@
     "language": "zh-hans",
     "plugins": [
         "-autocover",
-        "github-buttons",
         "image-captions",
         "latex-codecogs",
-        "mathjax",
         "prism", 
         "prism-themes", 
         "-highlight",
