@@ -1,6 +1,7 @@
 {
     "title": "区块链技术指南",
     "author": "yeasy",
+    "language": "zh-hans",
     "plugins": [
         "-autocover",
         "github-buttons",
@@ -9,7 +10,8 @@
         "mathjax",
         "prism", 
         "prism-themes", 
-        "-highlight"
+        "-highlight",
+        "theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"
     ],
     "pluginsConfig": {
         "autocover": {
