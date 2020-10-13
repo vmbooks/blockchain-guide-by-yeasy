@@ -99,217 +99,7 @@
                                 </script>
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x4F7F;&#x7528;-10-&#x7248;&#x672C;">&#x4F7F;&#x7528; 1.0 &#x7248;&#x672C;</h2>
-<p>Hyperledger Fabric 1.0 &#x7248;&#x672C;&#x6574;&#x4F53; <a href="https://github.com/hyperledger/fabric/blob/master/proposals/r1/Next-Consensus-Architecture-Proposal.md" target="_blank">&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x4E86;&#x67B6;&#x6784;</a>&#xFF0C;&#x65B0;&#x7684;&#x8BBE;&#x8BA1;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x66F4;&#x597D;&#x7684;&#x6269;&#x5C55;&#x6027;&#x548C;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
-<h3 id="&#x4E0B;&#x8F7D;-compose-&#x6A21;&#x677F;&#x6587;&#x4EF6;">&#x4E0B;&#x8F7D; Compose &#x6A21;&#x677F;&#x6587;&#x4EF6;</h3>
-<pre class="language-"><code class="lang-sh">$ <span class="token function">git</span> clone https://github.com/yeasy/docker-compose-files
-</code></pre>
-<p>&#x8FDB;&#x5165; <code>hyperledger/1.0</code> &#x76EE;&#x5F55;&#xFF0C;&#x67E5;&#x770B;&#x5305;&#x62EC;&#x82E5;&#x5E72;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#xFF0C;&#x529F;&#x80FD;&#x5982;&#x4E0B;&#x3002;</p>
-<table>
-<thead>
-<tr>
-<th>&#x6587;&#x4EF6;</th>
-<th>&#x529F;&#x80FD; </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>orderer-base.yaml</td>
-<td>orderer &#x8282;&#x70B9;&#x7684;&#x57FA;&#x7840;&#x670D;&#x52A1;&#x6A21;&#x677F;</td>
-</tr>
-<tr>
-<td>peer-base.yaml</td>
-<td>peer &#x8282;&#x70B9;&#x7684;&#x57FA;&#x7840;&#x670D;&#x52A1;&#x6A21;&#x677F;</td>
-</tr>
-<tr>
-<td>docker-compose-base.yaml</td>
-<td>&#x5305;&#x542B; orderer &#x548C; peers &#x7EC4;&#x7EC7;&#x7ED3;&#x6784;&#x7684;&#x57FA;&#x7840;&#x670D;&#x52A1;&#x6A21;&#x677F;</td>
-</tr>
-<tr>
-<td>docker-compose-1peer.yaml</td>
-<td>&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>channel</code> &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x73AF;&#x5883;&#xFF0C;&#x5305;&#x62EC; 1 &#x4E2A; peer &#x8282;&#x70B9;&#x3001;1 &#x4E2A; orderer &#x8282;&#x70B9;&#x3001;1 &#x4E2A; CA &#x8282;&#x70B9;&#x3001;1 &#x4E2A; cli &#x8282;&#x70B9;</td>
-</tr>
-<tr>
-<td>docker-compose-2orgs-4peers.yaml</td>
-<td>&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>channel</code> &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#xFF0C;&#x5305;&#x62EC; 4 &#x4E2A; peer &#x8282;&#x70B9;&#x3001;1 &#x4E2A; orderer &#x8282;&#x70B9;&#x3001;1 &#x4E2A; CA &#x8282;&#x70B9;&#x3001;1 &#x4E2A; cli &#x8282;&#x70B9;</td>
-</tr>
-<tr>
-<td>docker-compose-2orgs-4peers-couchdb.yaml</td>
-<td>&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5E26;&#x6709; couchdb &#x670D;&#x52A1;&#x7684;&#x7F51;&#x7EDC;&#x73AF;&#x5883;</td>
-</tr>
-<tr>
-<td>docker-compose-2orgs-4peers-event.yaml</td>
-<td>&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5E26;&#x6709; event &#x4E8B;&#x4EF6;&#x670D;&#x52A1;&#x7684;&#x7F51;&#x7EDC;&#x73AF;&#x5883;</td>
-</tr>
-<tr>
-<td>e2e_cli/channel-artifacts</td>
-<td>&#x5B58;&#x653E;&#x521B;&#x5EFA; orderer, channel, anchor peer &#x64CD;&#x4F5C;&#x65F6;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</td>
-</tr>
-<tr>
-<td>e2e_cli/crypto-config</td>
-<td>&#x5B58;&#x653E; orderer &#x548C; peer &#x76F8;&#x5173;&#x8BC1;&#x4E66;</td>
-</tr>
-<tr>
-<td>e2e_cli/example</td>
-<td>&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x7684; chaincode</td>
-</tr>
-<tr>
-<td>scripts/setup_Docker.sh</td>
-<td>&#x5B89;&#x88C5;&#x5E76;&#x914D;&#x7F6E; dokcer &#x548C; docker-compose</td>
-</tr>
-<tr>
-<td>scripts/download_images.sh</td>
-<td>&#x4E0B;&#x8F7D;&#x4F9D;&#x8D56;&#x955C;&#x50CF;</td>
-</tr>
-<tr>
-<td>scripts/start_fabric.sh</td>
-<td>&#x5FEB;&#x901F;&#x542F;&#x52A8;&#x4E00;&#x4E2A;fabric &#x7F51;&#x7EDC;</td>
-</tr>
-<tr>
-<td>scripts/initialize.sh</td>
-<td>&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316; <code>channel</code> &#x548C; <code>chaincode</code></td>
-</tr>
-<tr>
-<td>scripts/test_4peers.sh</td>
-<td>&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x7528;&#x6765;&#x6267;&#x884C; chaincode &#x64CD;&#x4F5C;</td>
-</tr>
-<tr>
-<td>scripts/cleanup_env.sh</td>
-<td>&#x5BB9;&#x5668;&#xFF0C;&#x955C;&#x50CF;&#x81EA;&#x52A8;&#x6E05;&#x9664;&#x811A;&#x672C;</td>
-</tr>
-<tr>
-<td>scripts/test_1peer.sh</td>
-<td>&#x6D4B;&#x8BD5;1&#x4E2A;peer&#x7F51;&#x7EDC;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x811A;&#x672C;</td>
-</tr>
-<tr>
-<td>kafka/</td>
-<td>&#x57FA;&#x4E8E;kafka &#x7684; ordering &#x670D;&#x52A1;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="&#x5B89;&#x88C5;-docker-&#x548C;-docker-compose">&#x5B89;&#x88C5; Docker &#x548C; docker-compose</h3>
-<p>docker &#x53CA; docker-compose &#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x624B;&#x52A8;&#x5B89;&#x88C5;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; hyperledger/1.0/scripts &#x63D0;&#x4F9B;&#x7684; <code>setup_Docker.sh</code> &#x811A;&#x672C;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">$ <span class="token function">bash</span> scripts/setup_Docker.sh
-</code></pre>
-<h3 id="&#x83B7;&#x53D6;-docker-&#x955C;&#x50CF;">&#x83B7;&#x53D6; Docker &#x955C;&#x50CF;</h3>
-<p>Docker &#x955C;&#x50CF;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x4ECE;&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#xFF08;<code>make docker</code>&#xFF09;&#xFF0C;&#x6216;&#x4ECE; DockerHub &#x4ED3;&#x5E93;&#x4E0B;&#x8F7D;&#x3002;</p>
-<h4 id="&#x6267;&#x884C;&#x811A;&#x672C;&#x83B7;&#x53D6;">&#x6267;&#x884C;&#x811A;&#x672C;&#x83B7;&#x53D6;</h4>
-<p>&#x76F4;&#x63A5;&#x6267;&#x884C; hyperledger/1.0/scripts &#x63D0;&#x4F9B;&#x7684; <code>download_images.sh</code> &#x811A;&#x672C;&#x83B7;&#x53D6;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">$ <span class="token function">bash</span> scripts/download_images.sh
-</code></pre>
-<h4 id="&#x4ECE;&#x5B98;&#x65B9;&#x4ED3;&#x5E93;&#x83B7;&#x53D6;">&#x4ECE;&#x5B98;&#x65B9;&#x4ED3;&#x5E93;&#x83B7;&#x53D6;</h4>
-<p>&#x4ECE;&#x793E;&#x533A; DockerHub &#x4ED3;&#x5E93;&#x4E0B;&#x8F7D;&#x3002;</p>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># pull fabric images</span>
-<span class="token assign-left variable">ARCH</span><span class="token operator">=</span>x86_64
-<span class="token assign-left variable">BASEIMAGE_RELEASE</span><span class="token operator">=</span><span class="token number">0.3</span>.1
-<span class="token assign-left variable">BASE_VERSION</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-<span class="token assign-left variable">PROJECT_VERSION</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-<span class="token assign-left variable">IMG_TAG</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-
-<span class="token builtin class-name">echo</span> <span class="token string">&quot;Downloading fabric images from DockerHub...with tag = <span class="token variable">${IMG_TAG}</span>... need a while&quot;</span>
-<span class="token comment"># TODO: we may need some checking on pulling result?</span>
-docker pull hyperledger/fabric-peer:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span>
-docker pull hyperledger/fabric-orderer:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span>
-docker pull hyperledger/fabric-ca:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span>
-docker pull hyperledger/fabric-tools:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span>
-docker pull hyperledger/fabric-ccenv:<span class="token variable">$ARCH</span>-<span class="token variable">$PROJECT_VERSION</span>
-docker pull hyperledger/fabric-baseimage:<span class="token variable">$ARCH</span>-<span class="token variable">$BASEIMAGE_RELEASE</span>
-docker pull hyperledger/fabric-baseos:<span class="token variable">$ARCH</span>-<span class="token variable">$BASEIMAGE_RELEASE</span>
-
-<span class="token comment"># Only useful for debugging</span>
-<span class="token comment"># docker pull yeasy/hyperledger-fabric</span>
-
-<span class="token builtin class-name">echo</span> <span class="token string">&quot;===Re-tagging images to *latest* tag&quot;</span>
-docker tag hyperledger/fabric-peer:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span> hyperledger/fabric-peer
-docker tag hyperledger/fabric-orderer:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span> hyperledger/fabric-orderer
-docker tag hyperledger/fabric-ca:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span> hyperledger/fabric-ca
-docker tag hyperledger/fabric-tools:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_TAG</span> hyperledger/fabric-tools
-</code></pre>
-<h4 id="&#x4ECE;&#x7B2C;&#x4E09;&#x65B9;&#x4ED3;&#x5E93;&#x83B7;&#x53D6;">&#x4ECE;&#x7B2C;&#x4E09;&#x65B9;&#x4ED3;&#x5E93;&#x83B7;&#x53D6;</h4>
-<p>&#x8FD9;&#x91CC;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x8C03;&#x6574;&#xFF08;&#x57FA;&#x4E8E; golang:1.8 &#x57FA;&#x7840;&#x955C;&#x50CF;&#x5236;&#x4F5C;&#xFF09;&#x540E;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x955C;&#x50CF;&#xFF0C;&#x4E0E;&#x793E;&#x533A;&#x7248;&#x672C;&#x529F;&#x80FD;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
-<p>&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x62C9;&#x53D6;&#x76F8;&#x5173;&#x955C;&#x50CF;&#xFF0C;&#x5E76;&#x66F4;&#x65B0;&#x955C;&#x50CF;&#x522B;&#x540D;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">$ <span class="token assign-left variable">ARCH</span><span class="token operator">=</span>x86_64
-$ <span class="token assign-left variable">BASEIMAGE_RELEASE</span><span class="token operator">=</span><span class="token number">0.3</span>.1
-$ <span class="token assign-left variable">BASE_VERSION</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-$ <span class="token assign-left variable">PROJECT_VERSION</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-$ <span class="token assign-left variable">IMG_TAG</span><span class="token operator">=</span><span class="token number">1.0</span>.0
-$ docker pull yeasy/hyperledger-fabric-base:<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull yeasy/hyperledger-fabric-peer:<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull yeasy/hyperledger-fabric-orderer:<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull yeasy/hyperledger-fabric-ca:<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull hyperledger/fabric-couchdb:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull hyperledger/fabric-kafka:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker pull hyperledger/fabric-zookeeper:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span>
-
-$ docker tag yeasy/hyperledger-fabric-peer:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-peer <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-orderer:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-orderer <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-ca:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-ca <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-peer:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-tools <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-base:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-ccenv:<span class="token variable">$ARCH</span>-<span class="token variable">$PROJECT_VERSION</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-base:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-baseos:<span class="token variable">$ARCH</span>-<span class="token variable">$BASEIMAGE_RELEASE</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag yeasy/hyperledger-fabric-base:<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-baseimage:<span class="token variable">$ARCH</span>-<span class="token variable">$BASEIMAGE_RELEASE</span> <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag hyperledger/fabric-couchdb:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-couchdb <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag hyperledger/fabric-zookeeper:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-zookeeper <span class="token punctuation">\</span>
-  <span class="token operator">&amp;&amp;</span> docker tag hyperledger/fabric-kafka:<span class="token variable">$ARCH</span>-<span class="token variable">$IMG_VERSION</span> hyperledger/fabric-kafka
-</code></pre>
-<h3 id="&#x542F;&#x52A8;-fabric-10-&#x7F51;&#x7EDC;">&#x542F;&#x52A8; fabric 1.0 &#x7F51;&#x7EDC;</h3>
-<p>&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x5FEB;&#x901F;&#x542F;&#x52A8;&#x3002;</p>
-<pre class="language-"><code class="lang-sh">$ <span class="token function">bash</span> scripts/start_fabric.sh
-</code></pre>
-<p>&#x6216;&#x8005;</p>
-<pre class="language-"><code class="lang-bash">$ docker-compose -f docker-compose-2orgs-4peers.yaml up
-</code></pre>
-<p>&#x6CE8;&#x610F;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x4E2D;&#x65E0;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
-<p>&#x6B64;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x4E2D;&#x5305;&#x62EC; 7 &#x4E2A;&#x5BB9;&#x5668;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">$ docker <span class="token function">ps</span> -a
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                                                                 NAMES
-8683435422ca        hyperledger/fabric-peer      <span class="token string">&quot;bash -c &apos;while true;&quot;</span>   <span class="token number">19</span> seconds ago      Up <span class="token number">18</span> seconds       <span class="token number">7050</span>-7059/tcp                                                                         fabric-cli
-f284c4dd26a0        hyperledger/fabric-peer      <span class="token string">&quot;peer node start --pe&quot;</span>   <span class="token number">22</span> seconds ago      Up <span class="token number">19</span> seconds       <span class="token number">7050</span>/tcp, <span class="token number">0.0</span>.0.0:7051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">7052</span>/tcp, <span class="token number">7054</span>-7059/tcp, <span class="token number">0.0</span>.0.0:7053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp     peer0.org1.example.com
-95fa3614f82c        hyperledger/fabric-ca        <span class="token string">&quot;fabric-ca-server sta&quot;</span>   <span class="token number">22</span> seconds ago      Up <span class="token number">19</span> seconds       <span class="token number">0.0</span>.0.0:7054-<span class="token operator">&gt;</span><span class="token number">7054</span>/tcp                                                                fabric-ca
-833ca0d8cf41        hyperledger/fabric-orderer   <span class="token string">&quot;orderer&quot;</span>                <span class="token number">22</span> seconds ago      Up <span class="token number">19</span> seconds       <span class="token number">0.0</span>.0.0:7050-<span class="token operator">&gt;</span><span class="token number">7050</span>/tcp                                                                orderer.example.com
-cd21cfff8298        hyperledger/fabric-peer      <span class="token string">&quot;peer node start --pe&quot;</span>   <span class="token number">22</span> seconds ago      Up <span class="token number">20</span> seconds       <span class="token number">7050</span>/tcp, <span class="token number">7052</span>/tcp, <span class="token number">7054</span>-7059/tcp, <span class="token number">0.0</span>.0.0:9051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:9053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp     peer0.org2.example.com
-372b583b3059        hyperledger/fabric-peer      <span class="token string">&quot;peer node start --pe&quot;</span>   <span class="token number">22</span> seconds ago      Up <span class="token number">20</span> seconds       <span class="token number">7050</span>/tcp, <span class="token number">7052</span>/tcp, <span class="token number">7054</span>-7059/tcp, <span class="token number">0.0</span>.0.0:10051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:10053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp   peer1.org2.example.com
-47ce30077276        hyperledger/fabric-peer      <span class="token string">&quot;peer node start --pe&quot;</span>   <span class="token number">22</span> seconds ago      Up <span class="token number">20</span> seconds       <span class="token number">7050</span>/tcp, <span class="token number">7052</span>/tcp, <span class="token number">7054</span>-7059/tcp, <span class="token number">0.0</span>.0.0:8051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:8053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp     peer1.org1.example.com
-</code></pre>
-<h3 id="&#x6D4B;&#x8BD5;&#x7F51;&#x7EDC;">&#x6D4B;&#x8BD5;&#x7F51;&#x7EDC;</h3>
-<p>&#x542F;&#x52A8; fabric &#x7F51;&#x7EDC;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C; chaincode &#x64CD;&#x4F5C;&#xFF0C;&#x9A8C;&#x8BC1;&#x7F51;&#x7EDC;&#x662F;&#x5426;&#x542F;&#x52A8;&#x6B63;&#x5E38;&#x3002;</p>
-<p>&#x8FDB;&#x5165;&#x5230; cli &#x5BB9;&#x5668;&#x91CC;&#x9762;&#xFF0C;&#x6267;&#x884C; <code>initialize.sh</code> &#x548C; <code>test_4peers.sh</code> &#x811A;&#x672C;&#x3002;</p>
-<p>&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x5165;&#x5BB9;&#x5668; cli &#x5E76;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x811A;&#x672C;&#x3002;</p>
-<pre class="language-"><code class="lang-bash">$ docker <span class="token builtin class-name">exec</span> -it fabric-cli <span class="token function">bash</span>
-$ <span class="token function">bash</span> ./scripts/initialize.sh
-</code></pre>
-<p>&#x6CE8;&#x610F;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x65E0;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x4E3A;&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">UTC <span class="token punctuation">[</span>main<span class="token punctuation">]</span> main -<span class="token operator">&gt;</span> INFO 00c Exiting<span class="token punctuation">..</span><span class="token punctuation">..</span>.
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> Chaincode Instantiation on PEER2 on channel <span class="token string">&apos;businesschannel&apos;</span> is successful <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> 
-
-
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> All GOOD, initialization completed <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> 
-
-
- _____   _   _   ____  
-<span class="token operator">|</span> ____<span class="token operator">|</span> <span class="token operator">|</span> <span class="token punctuation">\</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>  _ <span class="token punctuation">\</span> 
-<span class="token operator">|</span>  _<span class="token operator">|</span>   <span class="token operator">|</span>  <span class="token punctuation">\</span><span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>
-<span class="token operator">|</span> <span class="token operator">|</span>___  <span class="token operator">|</span> <span class="token operator">|</span><span class="token punctuation">\</span>  <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>_<span class="token operator">|</span> <span class="token operator">|</span>
-<span class="token operator">|</span>_____<span class="token operator">|</span> <span class="token operator">|</span>_<span class="token operator">|</span> <span class="token punctuation">\</span>_<span class="token operator">|</span> <span class="token operator">|</span>____/
-</code></pre>
-<p>&#x4E4B;&#x540E;&#x540C;&#x6837;&#x662F;&#x5728; <code>cli</code> &#x5BB9;&#x5668;&#x91CC;&#x6267;&#x884C; <code>test_4peers.sh</code> &#x811A;&#x672C;</p>
-<pre class="language-"><code class="lang-bash">$ <span class="token function">bash</span> ./scripts/test_4peers.sh
-</code></pre>
-<p>&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x65E0;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x4E3A;&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">Query Result: <span class="token number">80</span>
-UTC <span class="token punctuation">[</span>main<span class="token punctuation">]</span> main -<span class="token operator">&gt;</span> INFO 008 Exiting<span class="token punctuation">..</span><span class="token punctuation">..</span>.
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> Query on PEER3 on channel <span class="token string">&apos;businesschannel&apos;</span> is successful <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> 
-
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> All GOOD, End-2-End execution completed <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> 
-
-
- _____   _   _   ____  
-<span class="token operator">|</span> ____<span class="token operator">|</span> <span class="token operator">|</span> <span class="token punctuation">\</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>  _ <span class="token punctuation">\</span> 
-<span class="token operator">|</span>  _<span class="token operator">|</span>   <span class="token operator">|</span>  <span class="token punctuation">\</span><span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>
-<span class="token operator">|</span> <span class="token operator">|</span>___  <span class="token operator">|</span> <span class="token operator">|</span><span class="token punctuation">\</span>  <span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>_<span class="token operator">|</span> <span class="token operator">|</span>
-<span class="token operator">|</span>_____<span class="token operator">|</span> <span class="token operator">|</span>_<span class="token operator">|</span> <span class="token punctuation">\</span>_<span class="token operator">|</span> <span class="token operator">|</span>____/
-</code></pre>
-<p>&#x81F3;&#x6B64;&#xFF0C;&#x6574;&#x4E2A;&#x7F51;&#x7EDC;&#x542F;&#x52A8;&#x5E76;&#x9A8C;&#x8BC1;&#x6210;&#x529F;&#x3002;</p>
+                                <h1 id="&#x4F7F;&#x7528;-fabric-10-&#x7248;&#x672C;">&#x4F7F;&#x7528; Fabric 1.0 &#x7248;&#x672C;</h1>
 
                                 
                                 <ins class="adsbygoogle"
@@ -452,7 +242,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <a href="../01_history/bitcoin.html">
             
                     
-                    站在前人肩膀上的比特币
+                    集大成者的比特币
             </a>
             
 
@@ -1254,11 +1044,11 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="./">
-            <a href="./">
+        <li class="chapter " data-level="1.12" data-path="../09_fabric_deploy/">
+            <a href="../09_fabric_deploy/">
             
                     
-                    Fabric 部署与管理
+                    Fabric 安装与部署
             </a>
             
 
@@ -1266,7 +1056,73 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="intro.html">
+        <li class="chapter " data-level="1.12.1" data-path="../09_fabric_deploy/intro.html">
+            <a href="../09_fabric_deploy/intro.html">
+            
+                    
+                    简介
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../09_fabric_deploy/install_local.html">
+            <a href="../09_fabric_deploy/install_local.html">
+            
+                    
+                    本地编译组件
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../09_fabric_deploy/install_docker.html">
+            <a href="../09_fabric_deploy/install_docker.html">
+            
+                    
+                    容器方式获取
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../09_fabric_deploy/start_local.html">
+            <a href="../09_fabric_deploy/start_local.html">
+            
+                    
+                    本地方式启动 Fabric 网络
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../09_fabric_deploy/start_docker.html">
+            <a href="../09_fabric_deploy/start_docker.html">
+            
+                    
+                    容器方式启动 Fabric 网络
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../09_fabric_deploy/summary.html">
+            <a href="../09_fabric_deploy/summary.html">
+            
+                    
+                    本章小结
+            </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="intro.html">
             <a href="intro.html">
             
                     
@@ -1277,7 +1133,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter active" data-level="1.12.2" data-path="1.0.html">
+        <li class="chapter active" data-level="1.12.8" data-path="1.0.html">
             <a href="1.0.html">
             
                     
@@ -1288,7 +1144,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="sdk-node.html">
+        <li class="chapter " data-level="1.12.9" data-path="sdk-node.html">
             <a href="sdk-node.html">
             
                     
@@ -1299,7 +1155,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="v0.6/">
+        <li class="chapter " data-level="1.12.10" data-path="v0.6/">
             <a href="v0.6/">
             
                     
@@ -1311,7 +1167,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.4.1" data-path="v0.6/install.html">
+        <li class="chapter " data-level="1.12.10.1" data-path="v0.6/install.html">
             <a href="v0.6/install.html">
             
                     
@@ -1322,7 +1178,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.4.2" data-path="v0.6/usage.html">
+        <li class="chapter " data-level="1.12.10.2" data-path="v0.6/usage.html">
             <a href="v0.6/usage.html">
             
                     
@@ -1333,7 +1189,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.4.3" data-path="v0.6/membersrcv-usage.html">
+        <li class="chapter " data-level="1.12.10.3" data-path="v0.6/membersrcv-usage.html">
             <a href="v0.6/membersrcv-usage.html">
             
                     
@@ -1344,7 +1200,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.4.4" data-path="v0.6/hyperledger-py.html">
+        <li class="chapter " data-level="1.12.10.4" data-path="v0.6/hyperledger-py.html">
             <a href="v0.6/hyperledger-py.html">
             
                     
@@ -1360,7 +1216,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="summary.html">
+        <li class="chapter " data-level="1.12.11" data-path="summary.html">
             <a href="summary.html">
             
                     
@@ -1376,8 +1232,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../app_dev/">
-            <a href="../app_dev/">
+        <li class="chapter " data-level="1.13" data-path="../11_app_dev/">
+            <a href="../11_app_dev/">
             
                     
                     区块链应用开发
@@ -1388,8 +1244,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="../app_dev/intro.html">
-            <a href="../app_dev/intro.html">
+        <li class="chapter " data-level="1.13.1" data-path="../11_app_dev/intro.html">
+            <a href="../11_app_dev/intro.html">
             
                     
                     简介
@@ -1399,8 +1255,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.2" data-path="../app_dev/chaincode.html">
-            <a href="../app_dev/chaincode.html">
+        <li class="chapter " data-level="1.13.2" data-path="../11_app_dev/chaincode.html">
+            <a href="../11_app_dev/chaincode.html">
             
                     
                     链上代码工作原理
@@ -1410,8 +1266,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.3" data-path="../app_dev/chaincode_example01.html">
-            <a href="../app_dev/chaincode_example01.html">
+        <li class="chapter " data-level="1.13.3" data-path="../11_app_dev/chaincode_example01.html">
+            <a href="../11_app_dev/chaincode_example01.html">
             
                     
                     示例一：信息公证
@@ -1421,8 +1277,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.4" data-path="../app_dev/chaincode_example02.html">
-            <a href="../app_dev/chaincode_example02.html">
+        <li class="chapter " data-level="1.13.4" data-path="../11_app_dev/chaincode_example02.html">
+            <a href="../11_app_dev/chaincode_example02.html">
             
                     
                     示例二：交易资产
@@ -1432,8 +1288,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.5" data-path="../app_dev/chaincode_example03.html">
-            <a href="../app_dev/chaincode_example03.html">
+        <li class="chapter " data-level="1.13.5" data-path="../11_app_dev/chaincode_example03.html">
+            <a href="../11_app_dev/chaincode_example03.html">
             
                     
                     示例三：数字货币发行与管理
@@ -1443,8 +1299,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.6" data-path="../app_dev/chaincode_example04.html">
-            <a href="../app_dev/chaincode_example04.html">
+        <li class="chapter " data-level="1.13.6" data-path="../11_app_dev/chaincode_example04.html">
+            <a href="../11_app_dev/chaincode_example04.html">
             
                     
                     示例四：学历认证
@@ -1454,8 +1310,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.7" data-path="../app_dev/chaincode_example05.html">
-            <a href="../app_dev/chaincode_example05.html">
+        <li class="chapter " data-level="1.13.7" data-path="../11_app_dev/chaincode_example05.html">
+            <a href="../11_app_dev/chaincode_example05.html">
             
                     
                     示例五：社区能源共享
@@ -1465,8 +1321,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.13.8" data-path="../app_dev/summary.html">
-            <a href="../app_dev/summary.html">
+        <li class="chapter " data-level="1.13.8" data-path="../11_app_dev/summary.html">
+            <a href="../11_app_dev/summary.html">
             
                     
                     小结
@@ -1481,8 +1337,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="../fabric_design/">
-            <a href="../fabric_design/">
+        <li class="chapter " data-level="1.14" data-path="../13_fabric_design/">
+            <a href="../13_fabric_design/">
             
                     
                     Fabric 架构与设计
@@ -1493,8 +1349,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.1" data-path="../fabric_design/intro.html">
-            <a href="../fabric_design/intro.html">
+        <li class="chapter " data-level="1.14.1" data-path="../13_fabric_design/intro.html">
+            <a href="../13_fabric_design/intro.html">
             
                     
                     简介
@@ -1504,8 +1360,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.14.2" data-path="../fabric_design/design.html">
-            <a href="../fabric_design/design.html">
+        <li class="chapter " data-level="1.14.2" data-path="../13_fabric_design/design.html">
+            <a href="../13_fabric_design/design.html">
             
                     
                     架构设计
@@ -1515,8 +1371,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.14.3" data-path="../fabric_design/protocol.html">
-            <a href="../fabric_design/protocol.html">
+        <li class="chapter " data-level="1.14.3" data-path="../13_fabric_design/protocol.html">
+            <a href="../13_fabric_design/protocol.html">
             
                     
                     消息协议
@@ -1526,8 +1382,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.14.4" data-path="../fabric_design/summary.html">
-            <a href="../fabric_design/summary.html">
+        <li class="chapter " data-level="1.14.4" data-path="../13_fabric_design/summary.html">
+            <a href="../13_fabric_design/summary.html">
             
                     
                     小结
@@ -1542,8 +1398,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.15" data-path="../baas/">
-            <a href="../baas/">
+        <li class="chapter " data-level="1.15" data-path="../17_baas/">
+            <a href="../17_baas/">
             
                     
                     区块链服务平台设计
@@ -1554,8 +1410,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.15.1" data-path="../baas/intro.html">
-            <a href="../baas/intro.html">
+        <li class="chapter " data-level="1.15.1" data-path="../17_baas/intro.html">
+            <a href="../17_baas/intro.html">
             
                     
                     简介
@@ -1565,8 +1421,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.15.2" data-path="../baas/bluemix.html">
-            <a href="../baas/bluemix.html">
+        <li class="chapter " data-level="1.15.2" data-path="../17_baas/bluemix.html">
+            <a href="../17_baas/bluemix.html">
             
                     
                     IBM Bluemix 云区块链服务
@@ -1576,8 +1432,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.15.3" data-path="../baas/azure.html">
-            <a href="../baas/azure.html">
+        <li class="chapter " data-level="1.15.3" data-path="../17_baas/azure.html">
+            <a href="../17_baas/azure.html">
             
                     
                     微软 Azure 云区块链服务
@@ -1587,8 +1443,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.15.4" data-path="../baas/cello.html">
-            <a href="../baas/cello.html">
+        <li class="chapter " data-level="1.15.4" data-path="../17_baas/cello.html">
+            <a href="../17_baas/cello.html">
             
                     
                     使用超级账本 Cello 搭建区块链服务
@@ -1598,8 +1454,8 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             
         </li>
     
-        <li class="chapter " data-level="1.15.5" data-path="../baas/summary.html">
-            <a href="../baas/summary.html">
+        <li class="chapter " data-level="1.15.5" data-path="../17_baas/summary.html">
+            <a href="../17_baas/summary.html">
             
                     
                     本章小结
@@ -1702,7 +1558,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
             <a href="../appendix/golang/">
             
                     
-                    Golang 开发相关
+                    Go 语言开发相关
             </a>
             
 
@@ -1805,7 +1661,7 @@ UTC <span class="token punctuation">[</span>main<span class="token punctuation">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"使用 Fabric 1.0 版本","level":"1.12.2","depth":2,"next":{"title":"使用 Fabric SDK Node","level":"1.12.3","depth":2,"path":"fabric/sdk-node.md","ref":"fabric/sdk-node.md","articles":[]},"previous":{"title":"简介","level":"1.12.1","depth":2,"path":"fabric/intro.md","ref":"fabric/intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-autocover","image-captions","latex-codecogs","prism","prism-themes","-highlight","theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"latex-codecogs":{"type":"gif"},"prism":{},"search":{},"autocover":{"font":{"size":null,"family":"Impact","color":"#000"},"size":{"w":1800,"h":2360},"background":{"color":"#FFF"}},"theme-vmlite":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"prism-themes":{},"github-buttons":{"repo":"yeasy/blockchain_guide","types":["star","watch"]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"attributes":{"width":"400"},"caption":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"yeasy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: 区块链原理、设计与应用","alt":"区块链原理、设计与应用","nro":1,"url":"_images/blockchain_book.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链原理、设计与应用","attributes":{"width":"400"},"skip":false,"key":"1.1.1"},{"backlink":"01_history/ledger_history.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: 账本科技的演化","alt":"账本科技的演化","nro":2,"url":"_images/ledger_history.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"账本科技的演化","attributes":{"width":"400"},"skip":false,"key":"1.4.1.1"},{"backlink":"01_history/ledger_history.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: 乌鲁克城的库辛泥板","alt":"乌鲁克城的库辛泥板","nro":3,"url":"_images/kushim.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"乌鲁克城的库辛泥板","attributes":{"width":"400"},"skip":false,"key":"1.4.1.2"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: 方案（一）：简单分布式记账结构","alt":"方案（一）：简单分布式记账结构","nro":4,"url":"_images/dlt-01.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（一）：简单分布式记账结构","attributes":{"width":"400"},"skip":false,"key":"1.4.2.1"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.2","level":"1.4.2","list_caption":"Figure: 方案（二）：带有数字摘要验证的分布式记账","alt":"方案（二）：带有数字摘要验证的分布式记账","nro":5,"url":"_images/dlt-02.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（二）：带有数字摘要验证的分布式记账","attributes":{"width":"400"},"skip":false,"key":"1.4.2.2"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.3","level":"1.4.2","list_caption":"Figure: 方案（三）：带有数字摘要验证的可扩展的分布式记账","alt":"方案（三）：带有数字摘要验证的可扩展的分布式记账","nro":6,"url":"_images/dlt-03.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（三）：带有数字摘要验证的可扩展的分布式记账","attributes":{"width":"400"},"skip":false,"key":"1.4.2.3"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.4","level":"1.4.2","list_caption":"Figure: 区块链结构","alt":"区块链结构","nro":7,"url":"_images/blockchain.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链结构","attributes":{"width":"400"},"skip":false,"key":"1.4.2.4"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.5","level":"1.4.2","list_caption":"Figure: 区块链的三次热潮","alt":"区块链的三次热潮","nro":8,"url":"_images/3-hops.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链的三次热潮","attributes":{"width":"400"},"skip":false,"key":"1.4.2.5"},{"backlink":"01_history/bitcoin.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: David Chaum","alt":"David Chaum","nro":9,"url":"_images/David_Chaum.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"David Chaum","attributes":{"width":"400"},"skip":false,"key":"1.4.3.1"},{"backlink":"01_history/bitcoin.html#fig1.4.3.2","level":"1.4.3","list_caption":"Figure: Adam Back","alt":"Adam Back","nro":10,"url":"_images/Adam_Back.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Adam Back","attributes":{"width":"400"},"skip":false,"key":"1.4.3.2"},{"backlink":"01_history/bitcoin.html#fig1.4.3.3","level":"1.4.3","list_caption":"Figure: Wei Dai","alt":"Wei Dai","nro":11,"url":"_images/Wei_Dai.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Wei Dai","attributes":{"width":"400"},"skip":false,"key":"1.4.3.3"},{"backlink":"01_history/bitcoin.html#fig1.4.3.4","level":"1.4.3","list_caption":"Figure: Nick Szabo","alt":"Nick Szabo","nro":12,"url":"_images/Nick_Szabo.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Nick Szabo","attributes":{"width":"400"},"skip":false,"key":"1.4.3.4"},{"backlink":"01_history/business.html#fig1.4.4.1","level":"1.4.4","list_caption":"Figure: 区块链影响的交换过程","alt":"区块链影响的交换过程","nro":13,"url":"_images/application_circle.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链影响的交换过程","attributes":{"width":"400"},"skip":false,"key":"1.4.4.1"},{"backlink":"02_overview/definition.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: 区块链结构示例","alt":"区块链结构示例","nro":14,"url":"_images/blockchain_example.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链结构示例","attributes":{"width":"400"},"skip":false,"key":"1.5.1.1"},{"backlink":"02_overview/classify.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: 复式记账的账本","alt":"复式记账的账本","nro":15,"url":"_images/ledger.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"复式记账的账本","attributes":{"width":"400"},"skip":false,"key":"1.5.2.1"},{"backlink":"02_overview/classify.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: 信任度和非中心化程度","alt":"信任度和非中心化程度","nro":16,"url":"_images/trust_curve.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"信任度和非中心化程度","attributes":{"width":"400"},"skip":false,"key":"1.5.2.2"},{"backlink":"02_overview/vision.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: 计算的历史，笔者于某次技术交流会中提出","alt":"计算的历史，笔者于某次技术交流会中提出","nro":17,"url":"_images/computing_history.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"计算的历史，笔者于某次技术交流会中提出","attributes":{"width":"400"},"skip":false,"key":"1.5.4.1"},{"backlink":"02_overview/vision.html#fig1.5.4.2","level":"1.5.4","list_caption":"Figure: 坚持还是放弃？","alt":"坚持还是放弃？","nro":18,"url":"_images/near_dream.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"坚持还是放弃？","attributes":{"width":"400"},"skip":false,"key":"1.5.4.2"},{"backlink":"05_crypto/algorithm.html#fig1.8.3.1","level":"1.8.3","list_caption":"Figure: 加解密的基本过程","alt":"加解密的基本过程","nro":19,"url":"_images/basic_flow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"加解密的基本过程","attributes":{"width":"400"},"skip":false,"key":"1.8.3.1"},{"backlink":"05_crypto/algorithm.html#fig1.8.3.2","level":"1.8.3","list_caption":"Figure: TLS 握手协商过程","alt":"TLS 握手协商过程","nro":20,"url":"_images/tls_handshake.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"TLS 握手协商过程","attributes":{"width":"400"},"skip":false,"key":"1.8.3.2"},{"backlink":"05_crypto/merkle_trie.html#fig1.8.7.1","level":"1.8.7","list_caption":"Figure: Merkle 树示例","alt":"Merkle 树示例","nro":21,"url":"_images/Merkle_tree.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Merkle 树示例","attributes":{"width":"400"},"skip":false,"key":"1.8.7.1"},{"backlink":"05_crypto/bloom_filter.html#fig1.8.8.1","level":"1.8.8","list_caption":"Figure: 布隆过滤器","alt":"布隆过滤器","nro":22,"url":"_images/bloom_filter.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"布隆过滤器","attributes":{"width":"400"},"skip":false,"key":"1.8.8.1"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.1","level":"1.9.1","list_caption":"Figure: 比特币项目","alt":"比特币项目","nro":23,"url":"_images/bitcoin_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币项目","attributes":{"width":"400"},"skip":false,"key":"1.9.1.1"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.2","level":"1.9.1","list_caption":"Figure: 比特币汇率历史","alt":"比特币汇率历史","nro":24,"url":"_images/bitcoin_price.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币汇率历史","attributes":{"width":"400"},"skip":false,"key":"1.9.1.2"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.3","level":"1.9.1","list_caption":"Figure: 比特币白皮书邮件","alt":"比特币白皮书邮件","nro":25,"url":"_images/bitcoin_wp.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币白皮书邮件","attributes":{"width":"400"},"skip":false,"key":"1.9.1.3"},{"backlink":"06_bitcoin/design.html#fig1.9.3.1","level":"1.9.3","list_caption":"Figure: 比特币交易的例子","alt":"比特币交易的例子","nro":26,"url":"_images/transaction_example.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币交易的例子","attributes":{"width":"400"},"skip":false,"key":"1.9.3.1"},{"backlink":"06_bitcoin/design.html#fig1.9.3.2","level":"1.9.3","list_caption":"Figure: 比特币区块的例子","alt":"比特币区块的例子","nro":27,"url":"_images/block_example.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币区块的例子","attributes":{"width":"400"},"skip":false,"key":"1.9.3.2"},{"backlink":"06_bitcoin/consensus.html#fig1.9.5.1","level":"1.9.5","list_caption":"Figure: Pow 保证一致性","alt":"Pow 保证一致性","nro":28,"url":"_images/pow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Pow 保证一致性","attributes":{"width":"400"},"skip":false,"key":"1.9.5.1"},{"backlink":"06_bitcoin/sidechain.html#fig1.9.7.1","level":"1.9.7","list_caption":"Figure: 比特币侧链","alt":"比特币侧链","nro":29,"url":"_images/sidechain.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币侧链","attributes":{"width":"400"},"skip":false,"key":"1.9.7.1"},{"backlink":"06_bitcoin/sidechain.html#fig1.9.7.2","level":"1.9.7","list_caption":"Figure: 侧链双向挂钩的过程","alt":"侧链双向挂钩的过程","nro":30,"url":"_images/sidechain_workflow.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"侧链双向挂钩的过程","attributes":{"width":"400"},"skip":false,"key":"1.9.7.2"},{"backlink":"06_bitcoin/hot_topics.html#fig1.9.8.1","level":"1.9.8","list_caption":"Figure: 日益增加的区块容量","alt":"日益增加的区块容量","nro":31,"url":"_images/block_size.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"日益增加的区块容量","attributes":{"width":"400"},"skip":false,"key":"1.9.8.1"},{"backlink":"07_ethereum/intro.html#fig1.10.1.1","level":"1.10.1","list_caption":"Figure: 以太坊项目","alt":"以太坊项目","nro":32,"url":"_images/ethereum_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"以太坊项目","attributes":{"width":"400"},"skip":false,"key":"1.10.1.1"},{"backlink":"07_ethereum/tools.html#fig1.10.4.1","level":"1.10.4","list_caption":"Figure: Mist 浏览器","alt":"Mist 浏览器","nro":33,"url":"_images/mist.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Mist 浏览器","attributes":{"width":"400"},"skip":false,"key":"1.10.4.1"},{"backlink":"07_ethereum/tools.html#fig1.10.4.2","level":"1.10.4","list_caption":"Figure: 以太坊网络上的 Dapp 信息","alt":"以太坊网络上的 Dapp 信息","nro":34,"url":"_images/dapps.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"以太坊网络上的 Dapp 信息","attributes":{"width":"400"},"skip":false,"key":"1.10.4.2"},{"backlink":"08_hyperledger/intro.html#fig1.11.1.1","level":"1.11.1","list_caption":"Figure: 超级账本项目","alt":"超级账本项目","nro":35,"url":"_images/hyperledger_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"超级账本项目","attributes":{"width":"400"},"skip":false,"key":"1.11.1.1"},{"backlink":"08_hyperledger/intro.html#fig1.11.1.2","level":"1.11.1","list_caption":"Figure: Hyperledger 项目快速成长","alt":"Hyperledger 项目快速成长","nro":36,"url":"_images/community_growth.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 项目快速成长","attributes":{"width":"400"},"skip":false,"key":"1.11.1.2"},{"backlink":"08_hyperledger/community.html#fig1.11.2.1","level":"1.11.2","list_caption":"Figure: Hyperledger 社区组织结构","alt":"Hyperledger 社区组织结构","nro":37,"url":"_images/orgnization.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 社区组织结构","attributes":{"width":"400"},"skip":false,"key":"1.11.2.1"},{"backlink":"08_hyperledger/project.html#fig1.11.3.1","level":"1.11.3","list_caption":"Figure: Hyperledger 顶级项目","alt":"Hyperledger 顶级项目","nro":38,"url":"_images/top_projects.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 顶级项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.1"},{"backlink":"08_hyperledger/project.html#fig1.11.3.2","level":"1.11.3","list_caption":"Figure: Hyperledger Fabric 项目","alt":"Hyperledger Fabric 项目","nro":39,"url":"_images/fabric.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Fabric 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.2"},{"backlink":"08_hyperledger/project.html#fig1.11.3.3","level":"1.11.3","list_caption":"Figure: Hyperledger Sawtooth 项目","alt":"Hyperledger Sawtooth 项目","nro":40,"url":"_images/sawtooth.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Sawtooth 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.3"},{"backlink":"08_hyperledger/project.html#fig1.11.3.4","level":"1.11.3","list_caption":"Figure: Hyperledger Iroha 项目","alt":"Hyperledger Iroha 项目","nro":41,"url":"_images/iroha.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Iroha 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.4"},{"backlink":"08_hyperledger/project.html#fig1.11.3.5","level":"1.11.3","list_caption":"Figure: Hyperledger Explorer 项目","alt":"Hyperledger Explorer 项目","nro":42,"url":"_images/explorer.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Explorer 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.5"},{"backlink":"08_hyperledger/project.html#fig1.11.3.6","level":"1.11.3","list_caption":"Figure: Hyperledger Cello 项目","alt":"Hyperledger Cello 项目","nro":43,"url":"_images/cello.png","index":6,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Cello 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.6"},{"backlink":"08_hyperledger/project.html#fig1.11.3.7","level":"1.11.3","list_caption":"Figure: Hyperledger Indy 项目","alt":"Hyperledger Indy 项目","nro":44,"url":"_images/indy.png","index":7,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Indy 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.7"},{"backlink":"08_hyperledger/project.html#fig1.11.3.8","level":"1.11.3","list_caption":"Figure: Hyperledger Composer 项目","alt":"Hyperledger Composer 项目","nro":45,"url":"_images/composer.png","index":8,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Composer 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.8"},{"backlink":"08_hyperledger/project.html#fig1.11.3.9","level":"1.11.3","list_caption":"Figure: Hyperledger Burrow 项目","alt":"Hyperledger Burrow 项目","nro":46,"url":"_images/burrow.png","index":9,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Burrow 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.9"},{"backlink":"08_hyperledger/project.html#fig1.11.3.10","level":"1.11.3","list_caption":"Figure: Hyperledger Quilt 项目","alt":"Hyperledger Quilt 项目","nro":47,"url":"_images/quilt.png","index":10,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Quilt 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.10"},{"backlink":"08_hyperledger/project.html#fig1.11.3.11","level":"1.11.3","list_caption":"Figure: Hyperledger Caliper 项目","alt":"Hyperledger Caliper 项目","nro":48,"url":"_images/caliper.png","index":11,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Caliper 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.11"},{"backlink":"08_hyperledger/project.html#fig1.11.3.12","level":"1.11.3","list_caption":"Figure: Hyperledger Ursa 项目","alt":"Hyperledger Ursa 项目","nro":49,"url":"_images/ursa.png","index":12,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Ursa 项目","attributes":{"width":"400"},"skip":false,"key":"1.11.3.12"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.1","level":"1.11.4","list_caption":"Figure: Jira 任务管理","alt":"Jira 任务管理","nro":50,"url":"_images/jira.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Jira 任务管理","attributes":{"width":"400"},"skip":false,"key":"1.11.4.1"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.2","level":"1.11.4","list_caption":"Figure: Gerrit 代码仓库管理","alt":"Gerrit 代码仓库管理","nro":51,"url":"_images/gerrit.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Gerrit 代码仓库管理","attributes":{"width":"400"},"skip":false,"key":"1.11.4.2"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.3","level":"1.11.4","list_caption":"Figure: RocketChat 在线沟通","alt":"RocketChat 在线沟通","nro":52,"url":"_images/rocket_chat.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"RocketChat 在线沟通","attributes":{"width":"400"},"skip":false,"key":"1.11.4.3"},{"backlink":"08_hyperledger/contribute.html#fig1.11.5.1","level":"1.11.5","list_caption":"Figure: 代码提交流程","alt":"代码提交流程","nro":53,"url":"_images/patchset-lifecycle.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"代码提交流程","attributes":{"width":"400"},"skip":false,"key":"1.11.5.1"},{"backlink":"fabric_design/design.html#fig1.14.2.1","level":"1.14.2","list_caption":"Figure: 示例工作过程","alt":"示例工作过程","nro":54,"url":"_images/dataflow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"示例工作过程","attributes":{"width":"400"},"skip":false,"key":"1.14.2.1"},{"backlink":"fabric_design/design.html#fig1.14.2.2","level":"1.14.2","list_caption":"Figure: 示例交易过程","alt":"示例交易过程","nro":55,"url":"_images/transaction_flow.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"示例交易过程","attributes":{"width":"400"},"skip":false,"key":"1.14.2.2"},{"backlink":"baas/intro.html#fig1.15.1.1","level":"1.15.1","list_caption":"Figure: 区块链服务参考架构","alt":"区块链服务参考架构","nro":56,"url":"_images/refarch.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链服务参考架构","attributes":{"width":"400"},"skip":false,"key":"1.15.1.1"},{"backlink":"baas/bluemix.html#fig1.15.2.1","level":"1.15.2","list_caption":"Figure: Bluemix 区块链服务仪表盘","alt":"Bluemix 区块链服务仪表盘","nro":57,"url":"_images/bluemix_dashboard.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Bluemix 区块链服务仪表盘","attributes":{"width":"400"},"skip":false,"key":"1.15.2.1"},{"backlink":"baas/bluemix.html#fig1.15.2.2","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 操作链码","alt":"通过 Dashboard 操作链码","nro":58,"url":"_images/bluemix_chaincode.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 操作链码","attributes":{"width":"400"},"skip":false,"key":"1.15.2.2"},{"backlink":"baas/bluemix.html#fig1.15.2.3","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 观察区块链","alt":"通过 Dashboard 观察区块链","nro":59,"url":"_images/bluemix_blockchain.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 观察区块链","attributes":{"width":"400"},"skip":false,"key":"1.15.2.3"},{"backlink":"baas/bluemix.html#fig1.15.2.4","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 获取服务状态","alt":"通过 Dashboard 获取服务状态","nro":60,"url":"_images/bluemix_status.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 获取服务状态","attributes":{"width":"400"},"skip":false,"key":"1.15.2.4"},{"backlink":"baas/azure.html#fig1.15.3.1","level":"1.15.3","list_caption":"Figure: Azure 上的区块链服务","alt":"Azure 上的区块链服务","nro":61,"url":"_images/azure_marketplace.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 上的区块链服务","attributes":{"width":"400"},"skip":false,"key":"1.15.3.1"},{"backlink":"baas/azure.html#fig1.15.3.2","level":"1.15.3","list_caption":"Figure: Azure 区块链配置","alt":"Azure 区块链配置","nro":62,"url":"_images/azure_config.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链配置","attributes":{"width":"400"},"skip":false,"key":"1.15.3.2"},{"backlink":"baas/azure.html#fig1.15.3.3","level":"1.15.3","list_caption":"Figure: Azure 区块链部署结果","alt":"Azure 区块链部署结果","nro":63,"url":"_images/azure_deploy.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链部署结果","attributes":{"width":"400"},"skip":false,"key":"1.15.3.3"},{"backlink":"baas/azure.html#fig1.15.3.4","level":"1.15.3","list_caption":"Figure: Azure 区块链管理界面","alt":"Azure 区块链管理界面","nro":64,"url":"_images/azure_admin.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链管理界面","attributes":{"width":"400"},"skip":false,"key":"1.15.3.4"},{"backlink":"baas/cello.html#fig1.15.4.1","level":"1.15.4","list_caption":"Figure: Cello 典型应用场景","alt":"Cello 典型应用场景","nro":65,"url":"_images/cello.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 典型应用场景","attributes":{"width":"400"},"skip":false,"key":"1.15.4.1"},{"backlink":"baas/cello.html#fig1.15.4.2","level":"1.15.4","list_caption":"Figure: Cello 基本架构","alt":"Cello 基本架构","nro":66,"url":"_images/cello_arch.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 基本架构","attributes":{"width":"400"},"skip":false,"key":"1.15.4.2"},{"backlink":"baas/cello.html#fig1.15.4.3","level":"1.15.4","list_caption":"Figure: Cello 部署拓扑示例","alt":"Cello 部署拓扑示例","nro":67,"url":"_images/cello_deployment_topo.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 部署拓扑示例","attributes":{"width":"400"},"skip":false,"key":"1.15.4.3"},{"backlink":"baas/cello.html#fig1.15.4.4","level":"1.15.4","list_caption":"Figure: Cello Dashboard","alt":"Cello Dashboard","nro":68,"url":"_images/cello_dashboard.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello Dashboard","attributes":{"width":"400"},"skip":false,"key":"1.15.4.4"},{"backlink":"baas/cello.html#fig1.15.4.5","level":"1.15.4","list_caption":"Figure: Hosts 页面","alt":"Hosts 页面","nro":69,"url":"_images/cello_dashboard_hosts.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hosts 页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.5"},{"backlink":"baas/cello.html#fig1.15.4.6","level":"1.15.4","list_caption":"Figure: 添加主机","alt":"添加主机","nro":70,"url":"_images/cello_dashboard_addhost.png","index":6,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"添加主机","attributes":{"width":"400"},"skip":false,"key":"1.15.4.6"},{"backlink":"baas/cello.html#fig1.15.4.7","level":"1.15.4","list_caption":"Figure: Active Chains 页面","alt":"Active Chains 页面","nro":71,"url":"_images/cello_dashboard_activechains.png","index":7,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Active Chains 页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.7"},{"backlink":"baas/cello.html#fig1.15.4.8","level":"1.15.4","list_caption":"Figure: 添加链","alt":"添加链","nro":72,"url":"_images/cello_dashboard_addcluster.png","index":8,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"添加链","attributes":{"width":"400"},"skip":false,"key":"1.15.4.8"},{"backlink":"baas/cello.html#fig1.15.4.9","level":"1.15.4","list_caption":"Figure: 登录页面","alt":"登录页面","nro":73,"url":"_images/cello_user_dashboard_login.png","index":9,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"登录页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.9"},{"backlink":"baas/cello.html#fig1.15.4.10","level":"1.15.4","list_caption":"Figure: Chain列表页面","alt":"Chain列表页面","nro":74,"url":"_images/cello_user_dashboard_chain_list.png","index":10,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Chain列表页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.10"},{"backlink":"baas/cello.html#fig1.15.4.11","level":"1.15.4","list_caption":"Figure: Chain详情页面","alt":"Chain详情页面","nro":75,"url":"_images/cello_user_dashboard_chain_info.png","index":11,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Chain详情页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.11"},{"backlink":"baas/cello.html#fig1.15.4.12","level":"1.15.4","list_caption":"Figure: 智能合约模板列取页面","alt":"智能合约模板列取页面","nro":76,"url":"_images/cello_user_dashboard_chain_code_template.png","index":12,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约模板列取页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.12"},{"backlink":"baas/cello.html#fig1.15.4.13","level":"1.15.4","list_caption":"Figure: 智能合约详情页面","alt":"智能合约详情页面","nro":77,"url":"_images/cello_user_dashboard_chain_code_template_info.png","index":13,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约详情页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.13"},{"backlink":"baas/cello.html#fig1.15.4.14","level":"1.15.4","list_caption":"Figure: 智能合约操作页面","alt":"智能合约操作页面","nro":78,"url":"_images/cello_user_dashboard_chain_code_operate.png","index":14,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约操作页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.14"},{"backlink":"baas/cello.html#fig1.15.4.15","level":"1.15.4","list_caption":"Figure: 智能合约运行列表页面","alt":"智能合约运行列表页面","nro":79,"url":"_images/cello_user_dashboard_chain_code_running.png","index":15,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约运行列表页面","attributes":{"width":"400"},"skip":false,"key":"1.15.4.15"},{"backlink":"appendix/golang/tools.html#fig1.17.3.3.1","level":"1.17.3.3","list_caption":"Figure: godoc 启动本地网站","alt":"godoc 启动本地网站","nro":80,"url":"../_images/godoc.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"godoc 启动本地网站","attributes":{"width":"400"},"skip":false,"key":"1.17.3.3.1"},{"backlink":"appendix/golang/tools.html#fig1.17.3.3.2","level":"1.17.3.3","list_caption":"Figure: pprof Web 界面","alt":"pprof Web 界面","nro":81,"url":"_images/pprof.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"pprof Web 界面","attributes":{"width":"400"},"skip":false,"key":"1.17.3.3.2"}]},"title":"区块链技术指南","language":"zh-hans","gitbook":"*"},"file":{"path":"fabric/1.0.md","mtime":"2020-10-13T03:19:38.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-13T03:20:23.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"使用 Fabric 1.0 版本","level":"1.12.8","depth":2,"next":{"title":"使用 Fabric SDK Node","level":"1.12.9","depth":2,"path":"fabric/sdk-node.md","ref":"fabric/sdk-node.md","articles":[]},"previous":{"title":"简介","level":"1.12.7","depth":2,"path":"fabric/intro.md","ref":"fabric/intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-autocover","image-captions","latex-codecogs","prism","prism-themes","-highlight","theme-vmlite@git+https://github.com/vmlite/gitbook-plugin-theme-vmlite.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"latex-codecogs":{"type":"gif"},"prism":{},"search":{},"theme-vmlite":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"image-captions":{"attributes":{"width":"600"},"caption":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"yeasy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: 区块链原理、设计与应用 第二版","alt":"区块链原理、设计与应用 第二版","nro":1,"url":"_images/blockchain_book2.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链原理、设计与应用 第二版","attributes":{"width":"600"},"skip":false,"key":"1.1.1"},{"backlink":"01_history/ledger_history.html#fig1.4.1.1","level":"1.4.1","list_caption":"Figure: 账本科技的演化","alt":"账本科技的演化","nro":2,"url":"_images/ledger_history.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"账本科技的演化","attributes":{"width":"600"},"skip":false,"key":"1.4.1.1"},{"backlink":"01_history/ledger_history.html#fig1.4.1.2","level":"1.4.1","list_caption":"Figure: 乌鲁克城的库辛泥板","alt":"乌鲁克城的库辛泥板","nro":3,"url":"_images/kushim.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"乌鲁克城的库辛泥板","attributes":{"width":"600"},"skip":false,"key":"1.4.1.2"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.1","level":"1.4.2","list_caption":"Figure: 方案（一）：简单分布式记账结构","alt":"方案（一）：简单分布式记账结构","nro":4,"url":"_images/dlt-01.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（一）：简单分布式记账结构","attributes":{"width":"600"},"skip":false,"key":"1.4.2.1"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.2","level":"1.4.2","list_caption":"Figure: 方案（二）：带有数字摘要验证的分布式记账","alt":"方案（二）：带有数字摘要验证的分布式记账","nro":5,"url":"_images/dlt-02.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（二）：带有数字摘要验证的分布式记账","attributes":{"width":"600"},"skip":false,"key":"1.4.2.2"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.3","level":"1.4.2","list_caption":"Figure: 方案（三）：带有数字摘要验证的可扩展的分布式记账","alt":"方案（三）：带有数字摘要验证的可扩展的分布式记账","nro":6,"url":"_images/dlt-03.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"方案（三）：带有数字摘要验证的可扩展的分布式记账","attributes":{"width":"600"},"skip":false,"key":"1.4.2.3"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.4","level":"1.4.2","list_caption":"Figure: 区块链结构","alt":"区块链结构","nro":7,"url":"_images/blockchain.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链结构","attributes":{"width":"600"},"skip":false,"key":"1.4.2.4"},{"backlink":"01_history/dlt_problem.html#fig1.4.2.5","level":"1.4.2","list_caption":"Figure: 区块链的三次热潮","alt":"区块链的三次热潮","nro":8,"url":"_images/3-hops.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链的三次热潮","attributes":{"width":"600"},"skip":false,"key":"1.4.2.5"},{"backlink":"01_history/bitcoin.html#fig1.4.3.1","level":"1.4.3","list_caption":"Figure: David Chaum","alt":"David Chaum","nro":9,"url":"_images/David_Chaum.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"David Chaum","attributes":{"width":"600"},"skip":false,"key":"1.4.3.1"},{"backlink":"01_history/bitcoin.html#fig1.4.3.2","level":"1.4.3","list_caption":"Figure: Adam Back","alt":"Adam Back","nro":10,"url":"_images/Adam_Back.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Adam Back","attributes":{"width":"600"},"skip":false,"key":"1.4.3.2"},{"backlink":"01_history/bitcoin.html#fig1.4.3.3","level":"1.4.3","list_caption":"Figure: Wei Dai","alt":"Wei Dai","nro":11,"url":"_images/Wei_Dai.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Wei Dai","attributes":{"width":"600"},"skip":false,"key":"1.4.3.3"},{"backlink":"01_history/bitcoin.html#fig1.4.3.4","level":"1.4.3","list_caption":"Figure: Nick Szabo","alt":"Nick Szabo","nro":12,"url":"_images/Nick_Szabo.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Nick Szabo","attributes":{"width":"600"},"skip":false,"key":"1.4.3.4"},{"backlink":"01_history/business.html#fig1.4.4.1","level":"1.4.4","list_caption":"Figure: 区块链影响的交换过程","alt":"区块链影响的交换过程","nro":13,"url":"_images/application_circle.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链影响的交换过程","attributes":{"width":"600"},"skip":false,"key":"1.4.4.1"},{"backlink":"02_overview/definition.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: 区块链结构示例","alt":"区块链结构示例","nro":14,"url":"_images/blockchain_example.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链结构示例","attributes":{"width":"600"},"skip":false,"key":"1.5.1.1"},{"backlink":"02_overview/classify.html#fig1.5.2.1","level":"1.5.2","list_caption":"Figure: 复式记账的账本","alt":"复式记账的账本","nro":15,"url":"_images/ledger.jpg","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"复式记账的账本","attributes":{"width":"600"},"skip":false,"key":"1.5.2.1"},{"backlink":"02_overview/classify.html#fig1.5.2.2","level":"1.5.2","list_caption":"Figure: 信任度和非中心化程度","alt":"信任度和非中心化程度","nro":16,"url":"_images/trust_curve.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"信任度和非中心化程度","attributes":{"width":"600"},"skip":false,"key":"1.5.2.2"},{"backlink":"02_overview/vision.html#fig1.5.4.1","level":"1.5.4","list_caption":"Figure: 计算的历史，笔者于某次技术交流会中提出","alt":"计算的历史，笔者于某次技术交流会中提出","nro":17,"url":"_images/computing_history.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"计算的历史，笔者于某次技术交流会中提出","attributes":{"width":"600"},"skip":false,"key":"1.5.4.1"},{"backlink":"02_overview/vision.html#fig1.5.4.2","level":"1.5.4","list_caption":"Figure: 坚持还是放弃？","alt":"坚持还是放弃？","nro":18,"url":"_images/near_dream.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"坚持还是放弃？","attributes":{"width":"600"},"skip":false,"key":"1.5.4.2"},{"backlink":"05_crypto/algorithm.html#fig1.8.3.1","level":"1.8.3","list_caption":"Figure: 加解密的基本过程","alt":"加解密的基本过程","nro":19,"url":"_images/basic_flow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"加解密的基本过程","attributes":{"width":"600"},"skip":false,"key":"1.8.3.1"},{"backlink":"05_crypto/algorithm.html#fig1.8.3.2","level":"1.8.3","list_caption":"Figure: TLS 握手协商过程","alt":"TLS 握手协商过程","nro":20,"url":"_images/tls_handshake.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"TLS 握手协商过程","attributes":{"width":"600"},"skip":false,"key":"1.8.3.2"},{"backlink":"05_crypto/merkle_trie.html#fig1.8.7.1","level":"1.8.7","list_caption":"Figure: Merkle 树示例","alt":"Merkle 树示例","nro":21,"url":"_images/Merkle_tree.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Merkle 树示例","attributes":{"width":"600"},"skip":false,"key":"1.8.7.1"},{"backlink":"05_crypto/bloom_filter.html#fig1.8.8.1","level":"1.8.8","list_caption":"Figure: 布隆过滤器","alt":"布隆过滤器","nro":22,"url":"_images/bloom_filter.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"布隆过滤器","attributes":{"width":"600"},"skip":false,"key":"1.8.8.1"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.1","level":"1.9.1","list_caption":"Figure: 比特币项目","alt":"比特币项目","nro":23,"url":"_images/bitcoin_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币项目","attributes":{"width":"600"},"skip":false,"key":"1.9.1.1"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.2","level":"1.9.1","list_caption":"Figure: 比特币汇率历史","alt":"比特币汇率历史","nro":24,"url":"_images/bitcoin_price.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币汇率历史","attributes":{"width":"600"},"skip":false,"key":"1.9.1.2"},{"backlink":"06_bitcoin/intro.html#fig1.9.1.3","level":"1.9.1","list_caption":"Figure: 比特币白皮书邮件","alt":"比特币白皮书邮件","nro":25,"url":"_images/bitcoin_wp.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币白皮书邮件","attributes":{"width":"600"},"skip":false,"key":"1.9.1.3"},{"backlink":"06_bitcoin/design.html#fig1.9.3.1","level":"1.9.3","list_caption":"Figure: 比特币交易的例子","alt":"比特币交易的例子","nro":26,"url":"_images/transaction_example.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币交易的例子","attributes":{"width":"600"},"skip":false,"key":"1.9.3.1"},{"backlink":"06_bitcoin/design.html#fig1.9.3.2","level":"1.9.3","list_caption":"Figure: 比特币区块的例子","alt":"比特币区块的例子","nro":27,"url":"_images/block_example.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币区块的例子","attributes":{"width":"600"},"skip":false,"key":"1.9.3.2"},{"backlink":"06_bitcoin/consensus.html#fig1.9.5.1","level":"1.9.5","list_caption":"Figure: Pow 保证一致性","alt":"Pow 保证一致性","nro":28,"url":"_images/pow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Pow 保证一致性","attributes":{"width":"600"},"skip":false,"key":"1.9.5.1"},{"backlink":"06_bitcoin/sidechain.html#fig1.9.7.1","level":"1.9.7","list_caption":"Figure: 比特币侧链","alt":"比特币侧链","nro":29,"url":"_images/sidechain.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"比特币侧链","attributes":{"width":"600"},"skip":false,"key":"1.9.7.1"},{"backlink":"06_bitcoin/sidechain.html#fig1.9.7.2","level":"1.9.7","list_caption":"Figure: 侧链双向挂钩的过程","alt":"侧链双向挂钩的过程","nro":30,"url":"_images/sidechain_workflow.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"侧链双向挂钩的过程","attributes":{"width":"600"},"skip":false,"key":"1.9.7.2"},{"backlink":"06_bitcoin/hot_topics.html#fig1.9.8.1","level":"1.9.8","list_caption":"Figure: 日益增加的区块容量","alt":"日益增加的区块容量","nro":31,"url":"_images/block_size.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"日益增加的区块容量","attributes":{"width":"600"},"skip":false,"key":"1.9.8.1"},{"backlink":"07_ethereum/intro.html#fig1.10.1.1","level":"1.10.1","list_caption":"Figure: 以太坊项目","alt":"以太坊项目","nro":32,"url":"_images/ethereum_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"以太坊项目","attributes":{"width":"600"},"skip":false,"key":"1.10.1.1"},{"backlink":"07_ethereum/tools.html#fig1.10.4.1","level":"1.10.4","list_caption":"Figure: Mist 浏览器","alt":"Mist 浏览器","nro":33,"url":"_images/mist.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Mist 浏览器","attributes":{"width":"600"},"skip":false,"key":"1.10.4.1"},{"backlink":"07_ethereum/tools.html#fig1.10.4.2","level":"1.10.4","list_caption":"Figure: 以太坊网络上的 Dapp 信息","alt":"以太坊网络上的 Dapp 信息","nro":34,"url":"_images/dapps.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"以太坊网络上的 Dapp 信息","attributes":{"width":"600"},"skip":false,"key":"1.10.4.2"},{"backlink":"08_hyperledger/intro.html#fig1.11.1.1","level":"1.11.1","list_caption":"Figure: 超级账本项目","alt":"超级账本项目","nro":35,"url":"_images/hyperledger_logo.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"超级账本项目","attributes":{"width":"600"},"skip":false,"key":"1.11.1.1"},{"backlink":"08_hyperledger/intro.html#fig1.11.1.2","level":"1.11.1","list_caption":"Figure: Hyperledger 项目快速成长","alt":"Hyperledger 项目快速成长","nro":36,"url":"_images/community_growth.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 项目快速成长","attributes":{"width":"600"},"skip":false,"key":"1.11.1.2"},{"backlink":"08_hyperledger/community.html#fig1.11.2.1","level":"1.11.2","list_caption":"Figure: Hyperledger 社区组织结构","alt":"Hyperledger 社区组织结构","nro":37,"url":"_images/orgnization.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 社区组织结构","attributes":{"width":"600"},"skip":false,"key":"1.11.2.1"},{"backlink":"08_hyperledger/project.html#fig1.11.3.1","level":"1.11.3","list_caption":"Figure: Hyperledger 顶级项目","alt":"Hyperledger 顶级项目","nro":38,"url":"_images/top_projects.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger 顶级项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.1"},{"backlink":"08_hyperledger/project.html#fig1.11.3.2","level":"1.11.3","list_caption":"Figure: Hyperledger Fabric 项目","alt":"Hyperledger Fabric 项目","nro":39,"url":"_images/fabric.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Fabric 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.2"},{"backlink":"08_hyperledger/project.html#fig1.11.3.3","level":"1.11.3","list_caption":"Figure: Hyperledger Sawtooth 项目","alt":"Hyperledger Sawtooth 项目","nro":40,"url":"_images/sawtooth.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Sawtooth 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.3"},{"backlink":"08_hyperledger/project.html#fig1.11.3.4","level":"1.11.3","list_caption":"Figure: Hyperledger Iroha 项目","alt":"Hyperledger Iroha 项目","nro":41,"url":"_images/iroha.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Iroha 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.4"},{"backlink":"08_hyperledger/project.html#fig1.11.3.5","level":"1.11.3","list_caption":"Figure: Hyperledger Explorer 项目","alt":"Hyperledger Explorer 项目","nro":42,"url":"_images/explorer.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Explorer 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.5"},{"backlink":"08_hyperledger/project.html#fig1.11.3.6","level":"1.11.3","list_caption":"Figure: Hyperledger Cello 项目","alt":"Hyperledger Cello 项目","nro":43,"url":"_images/cello.png","index":6,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Cello 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.6"},{"backlink":"08_hyperledger/project.html#fig1.11.3.7","level":"1.11.3","list_caption":"Figure: Hyperledger Indy 项目","alt":"Hyperledger Indy 项目","nro":44,"url":"_images/indy.png","index":7,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Indy 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.7"},{"backlink":"08_hyperledger/project.html#fig1.11.3.8","level":"1.11.3","list_caption":"Figure: Hyperledger Composer 项目","alt":"Hyperledger Composer 项目","nro":45,"url":"_images/composer.png","index":8,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Composer 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.8"},{"backlink":"08_hyperledger/project.html#fig1.11.3.9","level":"1.11.3","list_caption":"Figure: Hyperledger Burrow 项目","alt":"Hyperledger Burrow 项目","nro":46,"url":"_images/burrow.png","index":9,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Burrow 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.9"},{"backlink":"08_hyperledger/project.html#fig1.11.3.10","level":"1.11.3","list_caption":"Figure: Hyperledger Quilt 项目","alt":"Hyperledger Quilt 项目","nro":47,"url":"_images/quilt.png","index":10,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Quilt 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.10"},{"backlink":"08_hyperledger/project.html#fig1.11.3.11","level":"1.11.3","list_caption":"Figure: Hyperledger Caliper 项目","alt":"Hyperledger Caliper 项目","nro":48,"url":"_images/caliper.png","index":11,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Caliper 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.11"},{"backlink":"08_hyperledger/project.html#fig1.11.3.12","level":"1.11.3","list_caption":"Figure: Hyperledger Ursa 项目","alt":"Hyperledger Ursa 项目","nro":49,"url":"_images/ursa.png","index":12,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Ursa 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.12"},{"backlink":"08_hyperledger/project.html#fig1.11.3.13","level":"1.11.3","list_caption":"Figure: Hyperledger Grid 项目","alt":"Hyperledger Grid 项目","nro":50,"url":"_images/grid.png","index":13,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Grid 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.13"},{"backlink":"08_hyperledger/project.html#fig1.11.3.14","level":"1.11.3","list_caption":"Figure: Hyperledger Transact 项目","alt":"Hyperledger Transact 项目","nro":51,"url":"_images/transact.png","index":14,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Transact 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.14"},{"backlink":"08_hyperledger/project.html#fig1.11.3.15","level":"1.11.3","list_caption":"Figure: Hyperledger Aries 项目","alt":"Hyperledger Aries 项目","nro":52,"url":"_images/aries.png","index":15,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Aries 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.15"},{"backlink":"08_hyperledger/project.html#fig1.11.3.16","level":"1.11.3","list_caption":"Figure: Hyperledger Besu 项目","alt":"Hyperledger Besu 项目","nro":53,"url":"_images/besu.png","index":16,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Besu 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.16"},{"backlink":"08_hyperledger/project.html#fig1.11.3.17","level":"1.11.3","list_caption":"Figure: Hyperledger Avalon 项目","alt":"Hyperledger Avalon 项目","nro":54,"url":"_images/avalon.png","index":17,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hyperledger Avalon 项目","attributes":{"width":"600"},"skip":false,"key":"1.11.3.17"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.1","level":"1.11.4","list_caption":"Figure: Jira 任务管理","alt":"Jira 任务管理","nro":55,"url":"_images/jira.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Jira 任务管理","attributes":{"width":"600"},"skip":false,"key":"1.11.4.1"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.2","level":"1.11.4","list_caption":"Figure: Github 代码仓库管理","alt":"Github 代码仓库管理","nro":56,"url":"_images/github.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Github 代码仓库管理","attributes":{"width":"600"},"skip":false,"key":"1.11.4.2"},{"backlink":"08_hyperledger/tools.html#fig1.11.4.3","level":"1.11.4","list_caption":"Figure: RocketChat 在线沟通","alt":"RocketChat 在线沟通","nro":57,"url":"_images/rocket_chat.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"RocketChat 在线沟通","attributes":{"width":"600"},"skip":false,"key":"1.11.4.3"},{"backlink":"08_hyperledger/contribute.html#fig1.11.5.1","level":"1.11.5","list_caption":"Figure: 代码提交流程","alt":"代码提交流程","nro":58,"url":"_images/patchset-lifecycle.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"代码提交流程","attributes":{"width":"600"},"skip":false,"key":"1.11.5.1"},{"backlink":"09_fabric_deploy/install_docker.html#fig1.12.3.1","level":"1.12.3","list_caption":"Figure: 镜像之间的依赖关系","alt":"镜像之间的依赖关系","nro":59,"url":"_images/docker_images.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"镜像之间的依赖关系","attributes":{"width":"600"},"skip":false,"key":"1.12.3.1"},{"backlink":"09_fabric_deploy/start_local.html#fig1.12.4.1","level":"1.12.4","list_caption":"Figure: 网络启动步骤","alt":"网络启动步骤","nro":60,"url":"_images/network_bootup.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"网络启动步骤","attributes":{"width":"600"},"skip":false,"key":"1.12.4.1"},{"backlink":"09_fabric_deploy/start_local.html#fig1.12.4.2","level":"1.12.4","list_caption":"Figure: 网络拓扑结构","alt":"网络拓扑结构","nro":61,"url":"_images/network_topology.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"网络拓扑结构","attributes":{"width":"600"},"skip":false,"key":"1.12.4.2"},{"backlink":"13_fabric_design/design.html#fig1.14.2.1","level":"1.14.2","list_caption":"Figure: 示例工作过程","alt":"示例工作过程","nro":62,"url":"_images/dataflow.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"示例工作过程","attributes":{"width":"600"},"skip":false,"key":"1.14.2.1"},{"backlink":"13_fabric_design/design.html#fig1.14.2.2","level":"1.14.2","list_caption":"Figure: 示例交易过程","alt":"示例交易过程","nro":63,"url":"_images/transaction_flow.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"示例交易过程","attributes":{"width":"600"},"skip":false,"key":"1.14.2.2"},{"backlink":"17_baas/intro.html#fig1.15.1.1","level":"1.15.1","list_caption":"Figure: 区块链服务参考架构","alt":"区块链服务参考架构","nro":64,"url":"_images/refarch.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"区块链服务参考架构","attributes":{"width":"600"},"skip":false,"key":"1.15.1.1"},{"backlink":"17_baas/bluemix.html#fig1.15.2.1","level":"1.15.2","list_caption":"Figure: Bluemix 区块链服务仪表盘","alt":"Bluemix 区块链服务仪表盘","nro":65,"url":"_images/bluemix_dashboard.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Bluemix 区块链服务仪表盘","attributes":{"width":"600"},"skip":false,"key":"1.15.2.1"},{"backlink":"17_baas/bluemix.html#fig1.15.2.2","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 操作链码","alt":"通过 Dashboard 操作链码","nro":66,"url":"_images/bluemix_chaincode.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 操作链码","attributes":{"width":"600"},"skip":false,"key":"1.15.2.2"},{"backlink":"17_baas/bluemix.html#fig1.15.2.3","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 观察区块链","alt":"通过 Dashboard 观察区块链","nro":67,"url":"_images/bluemix_blockchain.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 观察区块链","attributes":{"width":"600"},"skip":false,"key":"1.15.2.3"},{"backlink":"17_baas/bluemix.html#fig1.15.2.4","level":"1.15.2","list_caption":"Figure: 通过 Dashboard 获取服务状态","alt":"通过 Dashboard 获取服务状态","nro":68,"url":"_images/bluemix_status.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"通过 Dashboard 获取服务状态","attributes":{"width":"600"},"skip":false,"key":"1.15.2.4"},{"backlink":"17_baas/azure.html#fig1.15.3.1","level":"1.15.3","list_caption":"Figure: Azure 上的区块链服务","alt":"Azure 上的区块链服务","nro":69,"url":"_images/azure_marketplace.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 上的区块链服务","attributes":{"width":"600"},"skip":false,"key":"1.15.3.1"},{"backlink":"17_baas/azure.html#fig1.15.3.2","level":"1.15.3","list_caption":"Figure: Azure 区块链配置","alt":"Azure 区块链配置","nro":70,"url":"_images/azure_config.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链配置","attributes":{"width":"600"},"skip":false,"key":"1.15.3.2"},{"backlink":"17_baas/azure.html#fig1.15.3.3","level":"1.15.3","list_caption":"Figure: Azure 区块链部署结果","alt":"Azure 区块链部署结果","nro":71,"url":"_images/azure_deploy.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链部署结果","attributes":{"width":"600"},"skip":false,"key":"1.15.3.3"},{"backlink":"17_baas/azure.html#fig1.15.3.4","level":"1.15.3","list_caption":"Figure: Azure 区块链管理界面","alt":"Azure 区块链管理界面","nro":72,"url":"_images/azure_admin.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Azure 区块链管理界面","attributes":{"width":"600"},"skip":false,"key":"1.15.3.4"},{"backlink":"17_baas/cello.html#fig1.15.4.1","level":"1.15.4","list_caption":"Figure: Cello 典型应用场景","alt":"Cello 典型应用场景","nro":73,"url":"_images/cello.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 典型应用场景","attributes":{"width":"600"},"skip":false,"key":"1.15.4.1"},{"backlink":"17_baas/cello.html#fig1.15.4.2","level":"1.15.4","list_caption":"Figure: Cello 基本架构","alt":"Cello 基本架构","nro":74,"url":"_images/cello_arch.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 基本架构","attributes":{"width":"600"},"skip":false,"key":"1.15.4.2"},{"backlink":"17_baas/cello.html#fig1.15.4.3","level":"1.15.4","list_caption":"Figure: Cello 部署拓扑示例","alt":"Cello 部署拓扑示例","nro":75,"url":"_images/cello_deployment_topo.png","index":3,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello 部署拓扑示例","attributes":{"width":"600"},"skip":false,"key":"1.15.4.3"},{"backlink":"17_baas/cello.html#fig1.15.4.4","level":"1.15.4","list_caption":"Figure: Cello Dashboard","alt":"Cello Dashboard","nro":76,"url":"_images/cello_dashboard.png","index":4,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Cello Dashboard","attributes":{"width":"600"},"skip":false,"key":"1.15.4.4"},{"backlink":"17_baas/cello.html#fig1.15.4.5","level":"1.15.4","list_caption":"Figure: Hosts 页面","alt":"Hosts 页面","nro":77,"url":"_images/cello_dashboard_hosts.png","index":5,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Hosts 页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.5"},{"backlink":"17_baas/cello.html#fig1.15.4.6","level":"1.15.4","list_caption":"Figure: 添加主机","alt":"添加主机","nro":78,"url":"_images/cello_dashboard_addhost.png","index":6,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"添加主机","attributes":{"width":"600"},"skip":false,"key":"1.15.4.6"},{"backlink":"17_baas/cello.html#fig1.15.4.7","level":"1.15.4","list_caption":"Figure: Active Chains 页面","alt":"Active Chains 页面","nro":79,"url":"_images/cello_dashboard_activechains.png","index":7,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Active Chains 页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.7"},{"backlink":"17_baas/cello.html#fig1.15.4.8","level":"1.15.4","list_caption":"Figure: 添加链","alt":"添加链","nro":80,"url":"_images/cello_dashboard_addcluster.png","index":8,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"添加链","attributes":{"width":"600"},"skip":false,"key":"1.15.4.8"},{"backlink":"17_baas/cello.html#fig1.15.4.9","level":"1.15.4","list_caption":"Figure: 登录页面","alt":"登录页面","nro":81,"url":"_images/cello_user_dashboard_login.png","index":9,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"登录页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.9"},{"backlink":"17_baas/cello.html#fig1.15.4.10","level":"1.15.4","list_caption":"Figure: Chain列表页面","alt":"Chain列表页面","nro":82,"url":"_images/cello_user_dashboard_chain_list.png","index":10,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Chain列表页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.10"},{"backlink":"17_baas/cello.html#fig1.15.4.11","level":"1.15.4","list_caption":"Figure: Chain详情页面","alt":"Chain详情页面","nro":83,"url":"_images/cello_user_dashboard_chain_info.png","index":11,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Chain详情页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.11"},{"backlink":"17_baas/cello.html#fig1.15.4.12","level":"1.15.4","list_caption":"Figure: 智能合约模板列取页面","alt":"智能合约模板列取页面","nro":84,"url":"_images/cello_user_dashboard_chain_code_template.png","index":12,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约模板列取页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.12"},{"backlink":"17_baas/cello.html#fig1.15.4.13","level":"1.15.4","list_caption":"Figure: 智能合约详情页面","alt":"智能合约详情页面","nro":85,"url":"_images/cello_user_dashboard_chain_code_template_info.png","index":13,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约详情页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.13"},{"backlink":"17_baas/cello.html#fig1.15.4.14","level":"1.15.4","list_caption":"Figure: 智能合约操作页面","alt":"智能合约操作页面","nro":86,"url":"_images/cello_user_dashboard_chain_code_operate.png","index":14,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约操作页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.14"},{"backlink":"17_baas/cello.html#fig1.15.4.15","level":"1.15.4","list_caption":"Figure: 智能合约运行列表页面","alt":"智能合约运行列表页面","nro":87,"url":"_images/cello_user_dashboard_chain_code_running.png","index":15,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"智能合约运行列表页面","attributes":{"width":"600"},"skip":false,"key":"1.15.4.15"},{"backlink":"appendix/golang/tools.html#fig1.17.3.3.1","level":"1.17.3.3","list_caption":"Figure: godoc 启动本地网站","alt":"godoc 启动本地网站","nro":88,"url":"_images/godoc.png","index":1,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"godoc 启动本地网站","attributes":{"width":"600"},"skip":false,"key":"1.17.3.3.1"},{"backlink":"appendix/golang/tools.html#fig1.17.3.3.2","level":"1.17.3.3","list_caption":"Figure: pprof Web 界面","alt":"pprof Web 界面","nro":89,"url":"_images/pprof.png","index":2,"caption_template":"图 _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"pprof Web 界面","attributes":{"width":"600"},"skip":false,"key":"1.17.3.3.2"}]},"title":"区块链技术指南","language":"zh-hans","gitbook":"*"},"file":{"path":"fabric/1.0.md","mtime":"2020-10-13T11:27:21.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-13T11:27:34.348Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
